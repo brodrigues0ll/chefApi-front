@@ -120,7 +120,7 @@ const Index = () => {
 
             }}
           >
-            Enviar requisição
+            Cadastrar Lanche
           </Button>
 
         </FormControl>
