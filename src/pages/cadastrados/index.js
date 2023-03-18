@@ -2,7 +2,8 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
-import { fontSize } from "@mui/system";
+import Image from "next/image";
+import placeBurguer from '../../assets/burger-placeholder.jpg';
 
 
 function Index() {
@@ -69,10 +70,17 @@ function Index() {
         <Box
           sx={{
             display: "flex",
-            flexDirection: "column",
+            flexDirection: {
+              xs: "column",
+              sm: "column",
+              md: "row",
+              lg: "row",
+              xl: "row",
+            },
             alignItems: "center",
             justifyContent: "center",
-            maxWidth: "50%",
+            gap: "1rem",
+            flexWrap: "wrap",
 
           }}
         >
@@ -83,34 +91,52 @@ function Index() {
                   key={lanche.id}
                   sx={{
                     display: "flex",
-                    flexDirection: "column",
+                    flexDirection: {
+                      xs: "column",
+                      sm: "column",
+                      md: "row",
+                      lg: "row",
+                      xl: "row",
+                    },
+                    alignItems: "center",
+                    justifyContent: "space-around",
                     padding: "1rem",
                     border: "1px solid #000",
                     borderRadius: "1rem",
                     marginBottom: "1rem",
                   }}
                 >
-                  <Typography sx={{ marginBottom: "1rem" }} variant="h4">
-                    {lanche.name}
-                  </Typography>
-                  <Typography sx={{ marginBottom: "1rem" }} variant="h5">
-                    {lanche.price}
-                  </Typography>
-                  <Typography sx={{ marginBottom: "1rem" }} variant="h5">
-                    {lanche.description}
-                  </Typography>
+                  <Image style={{ borderRadius: '100%', margin: "2rem" }} src={placeBurguer} width={200} height={200} />
 
-                  <Button
-                    variant="contained"
+                  <Box>
+                    <Typography sx={{ marginBottom: "1rem" }} variant="h4">
+                      {lanche.name}
+                    </Typography>
+                    <Typography sx={{ marginBottom: "1rem" }} variant="h5">
+                      {lanche.price}
+                    </Typography>
+                    <Typography sx={{ marginBottom: "1rem" }} variant="h5">
+                      {lanche.description}
+                    </Typography>
 
-                    onClick={() => {
-                      handleDelete(lanche);
-                    }}
 
-                  >
-                    Delete
-                  </Button>
 
+
+
+                    <Stack>
+                      <Button
+                        variant="contained"
+
+                        onClick={() => {
+                          handleDelete(lanche);
+                        }}
+
+                      >
+                        Delete
+                      </Button>
+                    </Stack>
+
+                  </Box>
 
                 </Box>
               );

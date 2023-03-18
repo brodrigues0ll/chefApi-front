@@ -81,7 +81,7 @@ const Index = () => {
 
           <FormLabel sx={{ color: 'black' }} for="preco">Preço:</FormLabel>
           <Input autoComplete="off" onChange={(e) => {
-            setLanche({ ...lanche, price: parseInt(e.target.value) });
+            setLanche({ ...lanche, price: parseFloat(e.target.value) });
           }} style={{ fontSize: "1.3rem" }} type="number" id="preco" name="preco" step="0.01" />
 
           <FormLabel sx={{ color: 'black' }} for="descricao">Descrição:</FormLabel>
