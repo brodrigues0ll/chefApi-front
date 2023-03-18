@@ -16,7 +16,6 @@ function Index() {
     axios.delete(`https://chef-api.vercel.app/lanches/${lanche._id}`)
       .then((response) => {
         console.log(response);
-        // window.location.reload();
 
         const url = "https://chef-api.vercel.app/lanches";
         axios.get(url).then((response) => {
@@ -72,7 +71,7 @@ function Index() {
             display: "flex",
             flexDirection: {
               xs: "column",
-              sm: "column",
+              sm: "row",
               md: "row",
               lg: "row",
               xl: "row",
@@ -104,9 +103,17 @@ function Index() {
                     border: "1px solid #000",
                     borderRadius: "1rem",
                     marginBottom: "1rem",
+
+                    width: {
+                      xs: "100%",
+                      sm: "60%",
+                      md: "40%",
+                      lg: "30%",
+                      xl: "20%",
+                    }
                   }}
                 >
-                  <Image style={{ borderRadius: '100%', margin: "2rem" }} src={placeBurguer} width={200} height={200} />
+                  <Image style={{ borderRadius: '100%', margin: "2rem" }} src={placeBurguer} width="50%" height={200} />
 
                   <Box>
                     <Typography sx={{ marginBottom: "1rem" }} variant="h4">
